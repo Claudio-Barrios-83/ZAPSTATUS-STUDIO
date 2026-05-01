@@ -1,0 +1,18 @@
+{
+  "name": "zapstatus-studio",
+  "private": true,
+  "workspaces": [
+    "apps/web",
+    "apps/worker"
+  ],
+  "scripts": {
+    "dev": "npm run dev -w apps/web",
+    "dev:worker": "npm run dev -w apps/worker",
+    "build": "npm run build -w apps/web && npm run build -w apps/worker",
+    "test": "npm run test -w apps/worker",
+    "lint": "npm run lint -w apps/web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

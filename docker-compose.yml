@@ -1,0 +1,26 @@
+# Desarrollo local únicamente: cola Redis y almacenamiento S3-compatible (MinIO).
+# Supabase se usa en la nube (Auth/Postgres); no incluye Kubernetes.
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+
+volumes:
+  redis_data:
+  minio_data:

@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build / Next
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# Env (nunca commitear secretos)
+.env
+.env.local
+.env.*.local
+
+# Logs / OS
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# Test / coverage
+coverage/
+.nyc_output/
+
+# Temp processing (worker local)
+tmp/
+temp/
